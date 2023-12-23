@@ -7,6 +7,7 @@
     <script src="script.js" defer></script>
   </head>
   <body>
+    <SpeedInsights/>
     <a class="header" href="index.html">Fluxnote</a>
     <div id="highlighted-text"></div>
     <div id="editor-wrapper">
@@ -16,4 +17,8 @@
     </div>
     <input placeholder="Note Name" id="main" type="text">
   </body>
+
+  <script>
+    import { SpeedInsights } from "@vercel/speed-insights/next"
+  </script>
 </html>
