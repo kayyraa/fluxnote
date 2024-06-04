@@ -3,23 +3,24 @@ body {
 }
 
 .header {
-    position: fixed;
-    top: 3px;
-    left: 12px;
     text-decoration: none;
     color: white;
-    font-family: "Consolas";
+    font-family: "Inconsolata" !important;
     font-size: 48px;
+    transition: font-size 0.25s ease;
 }
 
 div[id="editor-wrapper"] {
-    position: fixed;
-    left: 25%;
-    top: 10%;
     background-color: rgb(75, 75, 75);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 100%;
     width: 720px;
     height: 512px;
-    border-radius: 10px;
 }
 
 textarea[id="editor-input"] {
@@ -37,28 +38,29 @@ textarea[id="editor-input"] {
     outline: none;
 }
 
-span[id="chars"] {
-    position: absolute;
-    font-size: 16px;
-    color: white;
-    font-family: "Consolas";
-    left: 96%;
-    top: 96%;
+div.division {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Inconsolata" !important;
+    width: 100%;
 }
 
-span[id="words"] {
-    position: absolute;
+div.division>span {
     font-size: 16px;
-    color: white;
-    font-family: "Consolas";
-    left: 92%;
-    top: 96%;
+    color: wheat;
+    margin-left: 10px;
+    margin-right: 10px;
+    transition: scale 0.25s ease;
 }
 
 input[id="main"] {
-    position: fixed;
-    left: 25%;
-    top: 1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 100%;
     width: 715px;
     height: 62px;
     font-size: 48px;
@@ -66,4 +68,8 @@ input[id="main"] {
     background-color: transparent;
     border: 0px;
     color: white;
+}
+
+.header:hover {
+    font-size: 64px;
 }

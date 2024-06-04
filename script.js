@@ -1,27 +1,44 @@
-document.addEventListener("DOMContentLoaded", function() {    
-    const textarea = document.getElementById("editor-input");
-    const notename = document.getElementById("main");
-    const charspan = document.getElementById("chars");
-    const wordspan = document.getElementById("words");
+const textarea = document.getElementById("editor-input");
+const notename = document.getElementById("main");
+const charspan = document.getElementById("chars");
+const wordspan = document.getElementById("words");
 
-    function refresh() {
-        let text = textarea.value.trim();
-        let charCount = text.length;
-        let wordCount = text.split(/\s+/).filter(word => word !== '').length;
+let OldWord = wordspan.innerHTML;
+let OldChar = charspan.innerHTML;
 
-        charspan.innerHTML = charCount;
-        wordspan.innerHTML = wordCount;
+function refresh() {
+    let text = textarea.value.trim();
+    let charCount = text.length;
+    let wordCount = text.split(/\s+/).filter(word => word !== '').length;
+
+    charspan.innerHTML = charCount;
+    wordspan.innerHTML = wordCount;
+
+    if (wordspan.innerHTML !== OldWord) {
+        wordspan.style.scale = 1.25;
+        OldWord = wordspan.innerHTML
+        setTimeout(() => {
+            wordspan.style.scale = 1;
+        }, 125);
     }
 
-    textarea.addEventListener("input", refresh);
-    refresh();
+    if (charspan.innerHTML !== OldChar) {
+        charspan.style.scale = 1.25;
+        OldChar = charspan.innerHTML
+        setTimeout(() => {
+            charspan.style.scale = 1;
+        }, 125);
+    }
+}
 
-    document.addEventListener("keydown", function(event) {
-        if ((event.ctrlKey || event.metaKey) && event.key === 's') {
-            event.preventDefault();
-            save(textarea.value, notename.value);
-        }
-    });
+textarea.addEventListener("input", refresh);
+refresh();
+
+document.addEventListener("keydown", function(event) {
+    if ((event.ctrlKey || event.metaKey) && event.key === 's') {
+        event.preventDefault();
+        save(textarea.value, notename.value);
+    }
 });
 
 function save(textToSave, fileName) {
