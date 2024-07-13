@@ -1,3 +1,5 @@
+import { SpeedInsights } from "@vercel/speed-insights/next"
+
 const textarea = document.getElementById("editor-input");
 const notename = document.getElementById("main");
 const charspan = document.getElementById("chars");
