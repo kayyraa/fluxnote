@@ -1,4 +1,6 @@
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { inject } from "@vercel/analytics"
+inject();
 
 const textarea = document.getElementById("editor-input");
 const notename = document.getElementById("main");
